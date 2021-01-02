@@ -1,0 +1,417 @@
+<!--<%@page pageEncoding="UTF-8"%>-->
+<!DOCTYPE html>
+<html lang="en" style="overflow-x:hidden">
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Title</title>
+    <link rel = "stylesheet" href="css/general.css">
+    <script src="js/mainPage.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/4.7.0/css/font-awesome.css">
+
+</head>
+<body style="display: none">
+<div class="header" style="height:68px">
+    <div style="position: fixed; z-index: 1000; width: 100%;" >
+            <nav class="navbar col-12 navbar-expand-sm bg-light navbar-dark" style="line-height: 2.0; ">
+                <!-- Links -->
+<!--                <div class="container" style="width:518.88px;">-->
+                    <ul class="nav col-12 justify-content-center">
+                        <li class="nav-item" >
+                            <h4 class="nav-link text-dark" href="#">U享音乐平台</h4>
+                        </li>
+                        <li class="nav-item" >
+                            <a class="nav-link text-dark find-music" href="#" onclick="clickFindMusic()">发现音乐</a>
+                        </li>
+                        <li class="nav-item" >
+                            <a class="nav-link text-dark my-music" href="#" onclick="clickMyMusic()">我的音乐</a>
+                        </li>
+                        <li class="nav-item" id="u-l">
+                            <a class="nav-link text-dark" href="#" data-toggle="modal" data-target="#loginModal">登录</a>
+                            <a class="nav-link text-dark username" href="#" style="display: none"></a>
+                        </li>
+                        <li class="nav-item" id="u-o">
+                            <a class="nav-link text-dark" href="#" data-toggle="modal" data-target="#registerModal">注册</a>
+                            <a class="nav-link text-dark" href="#" style="display: none" onclick="logout()">logout</a>
+                        </li>
+                    </ul>
+<!--                </div>-->
+            </nav>
+    </div>
+</div>
+
+<div class="content" style="height:100%; width: 100%;">
+    <div class="col-12" style="position: absolute; height:100%; width: 100%;">
+        <div class="row col-8 offset-2" style="height:100%;" >
+            <div class="col-2 table-bordered u-scroll" style="position:fixed; height:100%; overflow: auto; ">
+                <div class="category" style="">
+                    <h5>U享音乐特色榜</h5>
+                    <ul class="list-group u-music-rank">
+                        <li class="list-group-item" name="飙升榜" onclick="getMusicTable(this, 'public')">
+                            <a href="#">
+                                <div class="float-left">
+                                    <img src="http://p2.music.126.net/DrRIg6CrgDfVLEph9SNh7w==/18696095720518497.jpg?param=40y40" alt="飙升榜">
+                                </div>
+                                <p>飙升榜</p>
+                            </a>
+                        </li>
+                        <li class="list-group-item" name="新歌榜" onclick="getMusicTable(this, 'public')">
+                            <a href="#">
+                                <div class="float-left">
+                                    <img src="http://p1.music.126.net/N2HO5xfYEqyQ8q6oxCw8IQ==/18713687906568048.jpg?param=40y40" alt="新歌榜">
+                                </div>
+                                <p>新歌榜</p>
+                            </a>
+                        </li>
+                        <li class="list-group-item" name="原创榜" onclick="getMusicTable(this, 'public')">
+                            <a href="#">
+                                <div class="float-left">
+                                    <img src="http://p1.music.126.net/sBzD11nforcuh1jdLSgX7g==/18740076185638788.jpg?param=40y40" alt="原创榜">
+                                </div>
+                                <p>原创榜</p>
+                            </a>
+                        </li>
+                        <li class="list-group-item" name="热歌榜" onclick="getMusicTable(this, 'public')">
+                            <a href="#">
+                                <div class="float-left">
+                                    <img src="http://p1.music.126.net/GhhuF6Ep5Tq9IEvLsyCN7w==/18708190348409091.jpg?param=40y40" alt="热歌榜">
+                                </div>
+                                <p>热歌榜</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="category" style="">
+                    <h5>U享音乐全球榜</h5>
+                    <ul class="list-group u-music-rank">
+                        <li class="list-group-item" name="U音乐说唱榜" onclick="getMusicTable(this, 'public')">
+                            <a href="#">
+                                <div class="float-left">
+                                    <img src="http://p1.music.126.net/y8zyTt4HwXbJqB31aQKz1A==/109951164353220919.jpg?param=40y40" alt="U音乐说唱榜">
+                                </div>
+                                <p>U音乐说唱榜</p>
+                            </a>
+                        </li>
+                        <li class="list-group-item" name="U音乐古典音乐榜" onclick="getMusicTable(this, 'public')">
+                            <a href="#">
+                                <div class="float-left">
+                                    <img src="http://p1.music.126.net/BzSxoj6O1LQPlFceDn-LKw==/18681802069355169.jpg?param=40y40" alt="U音乐古典音乐榜">
+                                </div>
+                                <p>U音乐古典音乐榜</p>
+                            </a>
+                        </li>
+                        <li class="list-group-item" name="U音乐电音榜" onclick="getMusicTable(this, 'public')">
+                            <a href="#">
+                                <div class="float-left">
+                                    <img src="http://p1.music.126.net/5tgOCD4jiPKBGt7znJl-2g==/18822539557941307.jpg?param=40y40" alt="U音乐电音榜">
+                                </div>
+                                <p>U音乐电音榜</p>
+                            </a>
+                        </li>
+                        <li class="list-group-item" name="抖音排行榜" onclick="getMusicTable(this, 'public')">
+                            <a href="#">
+                                <div class="float-left">
+                                    <img src="http://p1.music.126.net/oUxnXXvM33OUHxxukYnUjQ==/109951164174523461.jpg?param=40y40" alt="抖音排行榜">
+                                </div>
+                                <p>抖音排行榜</p>
+                            </a>
+                        </li>
+                        <li class="list-group-item" name="U音乐ACG音乐榜" onclick="getMusicTable(this, 'public')">
+                            <a href="#">
+                                <div class="float-left">
+                                    <img src="http://p1.music.126.net/vttjtRjL75Q4DEnjRsO8-A==/18752170813539664.jpg?param=40y40" alt="U音乐ACG音乐榜">
+                                </div>
+                                <p>U音乐ACG音乐榜</p>
+                            </a>
+                        </li>
+                        <li class="list-group-item" name="U音乐韩语榜" onclick="getMusicTable(this, 'public')">
+                            <a href="#">
+                                <div class="float-left">
+                                    <img src="http://p1.music.126.net/vs-cMh49e6qPEorHuhU07A==/18737877162497499.jpg?param=40y40" alt="U音乐韩语榜">
+                                </div>
+                                <p>U音乐韩语榜</p>
+                            </a>
+                        </li>
+                        <li class="list-group-item" name="U音乐国电榜" onclick="getMusicTable(this, 'public')">
+                            <a href="#">
+                                <div class="float-left">
+                                    <img src="http://p1.music.126.net/8-GBrukQ3BHhs4CmK6qE4w==/109951163424197392.jpg?param=40y40" alt="U音乐国电榜">
+                                </div>
+                                <p>U音乐国电榜</p>
+                            </a>
+                        </li>
+                        <li class="list-group-item" name="英国Q杂志榜" onclick="getMusicTable(this, 'public')">
+                            <a href="#">
+                                <div class="float-left">
+                                    <img src="http://p1.music.126.net/0_6_Efe9m0D0NtghOxinUg==/109951163089272193.jpg?param=40y40" alt="英国Q杂志榜">
+                                </div>
+                                <p>英国Q杂志榜</p>
+                            </a>
+                        </li>
+                        <li class="list-group-item" name="UK排行榜" onclick="getMusicTable(this, 'public')">
+                            <a href="#">
+                                <div class="float-left">
+                                    <img src="http://p1.music.126.net/VQOMRRix9_omZbg4t-pVpw==/18930291695438269.jpg?param=40y40" alt="UK排行榜">
+                                </div>
+                                <p>UK排行榜</p>
+                            </a>
+                        </li>
+                        <li class="list-group-item" name="美国Billboard榜" onclick="getMusicTable(this, 'public')">
+                            <a href="#">
+                                <div class="float-left">
+                                    <img src="http://p1.music.126.net/EBRqPmY8k8qyVHyF8AyjdQ==/18641120139148117.jpg?param=40y40" alt="美国Billboard榜">
+                                </div>
+                                <p>美国Billboard榜</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="category user-list" style="display: none;">
+                    <div class="panel-group" id="accordion">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h6 class="panel-title my-list" style="padding: 4px 15px;">
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse-my" >
+                                        我的歌单
+                                    </a>
+                                    <button class="btn-default border-0" style="" data-toggle="modal" data-target="#createListModal">新建</button>
+                                </h6>
+                            </div>
+                            <div id="collapse-my" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <li class="template-item" name="" onclick="getMusicTable(this, 'private')" style="display: none">
+                                        <a href="#">
+                                            <p>1</p>
+                                        </a>
+                                    </li>
+                                    <ul class="list-group user-music-list">
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-row" style="height: 123px; width:inherit;">
+                </div>
+            </div>
+<!--            ok1-->
+<!--            ok2-->
+<!--            ok3-->
+            <div class="col-9 table-bordered offset-3 border-left-0" style="">
+                <div class="rk" style="padding: 40px 25px 15px 25px">
+                    <div class="rk-title">
+                        <h3><span class="rt-1">飙升榜歌曲列表</span></h3>
+                    </div>
+                    <span class="r-1" id="song-count">
+                        <span>15</span>首歌
+                    </span>
+                    <div class="r-2">
+                        播放：<strong class="r-2-1" id="play-count"></strong>次
+                    </div>
+                </div>
+                <div class="song-list" style="margin: 0px -17px 0px -4px">
+                    <table class="table table-striped" style="margin-bottom: 0px;">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th>标题</th>
+                            <th>歌手</th>
+                        </tr>
+                        <tr class="template-tr" onmouseover="displayCollect(this)" onmouseout="hiddenCollect(this)" style="display: none">
+                            <td><span>1</span><i class="fa fa-play-circle-o float-right" style="font-size:24px;" onclick="playMusic(this)"></i></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        </thead>
+<!--                        ok1-->
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="comment-section col-12">
+                    <div class="rk border-bottom " style="padding: 40px 25px 15px 0px; margin-left: 10px">
+                        <div class="rk-title col-12" style="margin-left:-14px;">
+                            <h3><span>评论</span></h3>
+                        </div>
+                        <span class="r-1" id="comment-count">
+                            共<span>15</span>条评论
+                        </span>
+                    </div>
+                    <div class="comment" style="">
+                        <div class="top-area" style="height: 100px;margin-top:10px;margin-bottom: 10px;">
+                            <textarea class="float-right col-12" placeholder="评论" maxlength="140" onkeyup="checkAreaCount(this)" style="height: 100px; max-height: 100px; outline-color:lightgray; border: 1px solid lightgray"></textarea>
+                        </div>
+                        <div class="bottom-area" style="height: 38px; ">
+                            <button type="button" onclick="publishComment()" class="btn btn-default float-right" id="comment-btn" style="height: inherit; border: 1px solid lightgray;">评论</button>
+                            <p class="float-right" id="remain-input" style="margin: 6px 10px 0 0">140</p>
+                        </div>
+<!--                        border: 1px red solid-->
+                        <div class="all-comment" style="display: none;">
+                            <h7 class="comment-title">精彩评论</h7>
+
+                            <div class="template-comment each-comment border-top" style="display: none">
+                                <div class="comment-top">
+                                    <span class="comment-name"></span>：
+                                    <span class="comment-content"></span>
+                                </div>
+                                <div class="comment-bottom" style="margin-top:10px; color: gray">
+                                </div>
+                            </div>
+
+                            <div class="comment-district">
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="space-row" style="height: 53px; width:inherit;">
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+
+<div class="player  bg-light">
+    <div class="playbar">
+        <div class="p-b">
+            <audio controls>
+                <source src="static/audio/杨陆 - 爱笑的女孩.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+    </div>
+</div>
+<!-- login模态框（Modal） -->
+<div class="modal fade" id="loginModal" tabindex="-1" style="overflow: auto" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="loginModalLabel">Login</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form class="login-form"  id="login-form" style="margin-block-end: 0;">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="login-username" placeholder="Username">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 0px;">
+                        <input type="password" class="form-control" id="login-password" placeholder="Password">
+                    </div>
+                </form>
+                <div class="error-tip col-12 text-center text-danger" style="display: none">
+                    username or password error
+                </div>
+            </div>
+            <div class="modal-footer" style="display: table;">
+                <button type="button" class="btn btn-secondary" id="btn-forget-password">Forgot Password</button>
+                <button type="button" class="btn btn-primary float-right col-2 mr-0 " id="btn-login" onclick="login()">Login</button>
+                <button type="button" class="btn btn-secondary float-right col-2 mr-1" data-dismiss="modal">Cancel</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+<!-- register模态框（Modal） -->
+<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="registerModalLabel">Register</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form class="register-form" style="margin-block-end: 0;">
+                    <div class="form-group">
+                        <input type="text" class="form-control" id="register-username" placeholder="Username" onblur="isExistUsername(this)">
+                    </div>
+                    <div class="register-tip col-12 text-center text-danger" style=" display: none;">
+                        this username has been registered
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" id="register-password" placeholder="Password">
+                    </div>
+                    <div class="form-group" style="margin-bottom: 0px;">
+                        <input type="password" class="form-control" id="register-repeat-password" placeholder="Repeat Password">
+                    </div>
+                </form>
+                <div class="password-tip col-12 text-center text-danger" style="display: none">
+                    passwords does not match
+                </div>
+                <div class="register-suc-tip col-12 text-center text-success" style="display: none">
+                    success!
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-primary" id="btn-register" onclick="registerUser()">Register</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+<!-- createList模态框（Modal） -->
+<div class="modal fade" id="createListModal" tabindex="-1" style="overflow: auto" role="dialog" aria-hidden="true" style="">
+    <div class="modal-dialog" style="top:50%; margin-top: -106px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="createListModalLabel">Create Song-List</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form class="login-form"  id="createList-form" style="margin-block-end: 0;">
+                    <div class="form-group" style="margin-bottom: 0px;">
+                        <input type="text" class="form-control" id="list-name" placeholder="song-list name" onblur="isExistPlaylist(this)">
+                    </div>
+                </form>
+                <div class="error-tip col-12 text-center text-danger" style="display: none">
+                    this song-list has been created
+                </div>
+                <div class="create-playlist-suc-tip col-12 text-center text-success" style="display: none">
+                    success!
+                </div>
+            </div>
+            <div class="modal-footer" style="display: table;">
+                <button type="submit" class="btn btn-primary float-right col-2 mr-0 " id="btn-list" onclick="createPlaylist()">Create</button>
+                <button type="button" class="btn btn-secondary float-right col-2 mr-1" data-dismiss="modal">Cancel</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+<!-- collect模态框（Modal） -->
+<div class="modal fade" id="collectModal" tabindex="-1" style="overflow: auto" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" style="top:50%; margin-top: -125.5px;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="collectModalLabel">Add Into Song-List</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body" style="padding: 0px;">
+                <ul class="list-group user-music-list" style="height:148px; overflow: auto; ">
+                </ul>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+
+<script type="text/javascript">
+    setTimeout(function () {
+        $("body").removeAttr("style");
+    }, 1000);
+</script>
+
+</body>
+
+</html>

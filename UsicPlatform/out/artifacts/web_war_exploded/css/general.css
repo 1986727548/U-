@@ -1,0 +1,245 @@
+.absolute{
+    position:absolute;
+}
+
+.relative{
+    position:relative;
+}
+
+.header nav ul{
+    cursor:pointer;
+}
+
+.header nav ul li:nth-child(n+2):hover{
+    background-color: lightgray;
+}
+
+/*.header div nav{*/
+/*    border: 1px solid red;*/
+/*}*/
+
+/*.content{*/
+/*    border: 1px solid red;*/
+/*}*/
+
+.modal-body .register-tip{
+    margin-top:-1em;
+    *border: 1px red solid;
+}
+
+.modal-body .password-tip, .modal-body .register-suc-tip{
+    top:10px;
+}
+
+.modal .modal-dialog{
+    margin: 1rem auto;
+}
+
+.modal-body .error-tip, .modal-body .create-playlist-suc-tip{
+    margin-top: 1em;
+}
+
+.row .category:first-child, .row .category:nth-child(3){
+    margin-top: 35px;
+}
+
+.row .category:nth-child(2){
+    margin-top: 20px;
+}
+
+.row .user-list .panel-group .panel-title a {
+    text-decoration: none;
+    color: #333;
+    height: 40px;
+    display: inline-block;
+    line-height: 2.5;
+    *border: 1px red solid;
+}
+
+.row .user-list .panel-group .panel-title{
+    /*border: 1px red solid;*/
+
+}
+
+.row .user-list .panel-group .panel-title button{
+    font-size:14px;
+    background-color: lightgray;
+    padding: 0px 10px;
+    height: 24px;
+    margin: 8px 5px;
+    float: right;
+}
+
+.row .user-list .panel-group .panel-title:hover{
+    background-color: #E0E0E0;
+}
+
+.row .category ul li p{
+    margin-top:8px;
+    margin-left:8px;
+    *border: 1px red solid;
+    display: inline-block;
+}
+
+.row .category ul li a, #collectModal ul li a{
+    text-decoration: none;
+    color: #333;
+    height:40px;
+    *border: 1px red solid;
+    display: inline-block;
+}
+
+.row .category ul li, #collectModal ul li{
+    padding: .75rem .75rem;
+}
+
+.row .category ul li:hover, #collectModal ul li:hover{
+    background-color: #e6e6e6;
+}
+
+.row .category ul, #collectModal ul{
+    cursor:pointer;
+}
+
+.u-scroll::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.05);
+    border-radius: 10px;
+    -webkit-box-shadow: inset 1px 1px 0 rgba(0,0,0,.1);
+}
+
+.u-scroll::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.u-scroll::-webkit-scrollbar-track {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0);
+}
+
+.rk{
+    *border: 1px solid red;
+    line-height: 28px;
+}
+
+.rk .rk-title h3 {
+    font-size: 20px;
+    float: left;
+    font-weight: normal;
+    *border: 1px solid red;
+}
+
+.rk .r-1 {
+    *border: 1px solid red;
+    margin-left: 20px;
+    display: inline-block;
+    font-size: 12px;
+}
+
+.rk .r-2 {
+    *border: 1px solid red;
+    font-size: 12px;
+    float: right;
+}
+
+.row .col-9 .song-list table tr th:first-child, .song-list table tr td:first-child{
+    width: 87px;
+}
+
+.row .col-9 .song-list table tr th:nth-child(2), .song-list table tr td:nth-child(2){
+    width: 337px;
+}
+
+.row .col-9 .song-list table tr th:last-child, .song-list table tr td:last-child{
+    width: 243px;
+}
+
+.row .col-9 .song-list table tr td{
+    border: none;
+}
+
+.row .col-9 .song-list table tbody{
+    border: 1px solid #dee2e6;
+}
+
+.row .col-9 .song-list table thead tr{
+    height: 55px;
+}
+
+.row .col-9 .song-list table tbody tr{
+    height: 46px;
+}
+
+.row .col-9 .song-list table tr td i:hover{
+    color:#909090;
+}
+.row .col-9 .song-list table tr td i{
+    color: #C0C0C0;
+    cursor: pointer;
+}
+
+.row .col-9 .song-list table tbody tr:hover{
+    background-color: #e6e6e6;
+}
+
+.bottom-area button:hover{
+    background-color: lightgray;
+}
+
+.comment{
+    padding: 0px 0px 0px 10px;
+    /*margin-left: 10px;*/
+}
+
+.all-comment{
+    margin-top: 10px;
+}
+
+.each-comment{
+    padding: 10px 0px;
+    font-size: 15px;
+}
+
+.player{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1002;
+    *border: 1px solid red;
+}
+
+.player .playbar{
+    *border: 1px solid red;
+    top: -53px;
+    height: 53px;
+}
+
+.player .playbar .p-b{
+     *border: 1px solid red;
+     position:absolute;
+     *top: 3px;
+     z-index: 15;
+     width: 980px;
+     height: 47px;
+     margin-left:-490px;
+     left:50%;
+    overflow: hidden;
+ }
+
+.player .playbar .p-b audio{
+    border: 1px solid red;
+    height: 60px;
+    width: 990px;
+    margin-top: -3px;
+    margin-left:-3px;
+    position: relative;
+
+}
+
+
+
+
+
+
+
+
